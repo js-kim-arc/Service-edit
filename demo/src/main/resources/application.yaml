@@ -1,0 +1,50 @@
+debug: false
+management.endpoints.web.exposure.include: "*"
+
+logging:
+  level:
+    com.hello.demo: debug
+    org.springframework.web.servlet: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/board
+    username: uno
+    password: thisisTESTpw!#
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.MySQLDialect
+        hbm2ddl:
+          auto: create
+  sql.init.mode: always
+
+
+  h2:
+    console:
+      enabled: false
+
+---
+
+# spring:
+#  config:
+#    activate:
+    #       on-profile: heroku
+#  datasource:
+    # url: jdbc:mysql://localhost:3306/board
+  #  driver-class-name: com.mysql.cj.jdbc.Driver
+    #  jpa:
+  #  hibernate.ddl-auto: create
+    # sql:
+    #  init:
+  #  mode: always
+
